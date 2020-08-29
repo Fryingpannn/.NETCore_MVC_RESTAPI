@@ -1,13 +1,15 @@
 using System.Collections.Generic;
 using Commander.Models;
 
+//MOCK REPOSITORY, NOT USED IN FINAL VERSION
+
 //Data = repository
 namespace Commander.Data
 {
     //Implementing ICommanderRepo interface, decoupling code!
     public class MockCommanderRepo : ICommanderRepo
     {
-        public IEnumerable<Command> GetAppCommands()
+        public IEnumerable<Command> GetAllCommands()
         {
             var commands = new List<Command> //implicit type
             { 

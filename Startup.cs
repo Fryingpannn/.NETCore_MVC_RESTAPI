@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,9 +29,15 @@ namespace Commander
         {
             services.AddControllers();
 
+            //Mock repo dependency injection
+            /*services.AddScoped<ICommanderRepo, MockCommanderRepo>();*/
+
             //Registering service container: whenever ICommanderRepo is asked, give MockCommanderRepo
             //to change implementation, all you have to do is change second parameter!
-            services.AddScoped<ICommanderRepo, MockCommanderRepo>();
+            services.AddScoped<ICommanderRepo, SqlCommanderRepo>();
+
+            //Configure our DB context class for use within rest of app; dependency injection support, adds dbcontext to service container
+            services.AddDbContext<CommanderContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommanderConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

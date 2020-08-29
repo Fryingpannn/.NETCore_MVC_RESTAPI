@@ -1,4 +1,5 @@
-using Microsoft.EntityFrameworkCore;
+using Commander.Models;
+using Microsoft.EntityFrameworkCore; //import EF to use ORM methods
 
 namespace Commander.Data
 {
@@ -9,5 +10,9 @@ namespace Commander.Data
         {
             
         }
+
+        //Creating a command model in our DB: we want to represent our Command object down to our DB as a DbSet called Commands
+        //Does the mapping for our Command mode; if more models, need more properties.
+        public DbSet<Command> Commands { get; set; } //Commands will be the name of table in migration
     }
 }

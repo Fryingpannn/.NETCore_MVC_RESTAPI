@@ -11,7 +11,7 @@ namespace Commander.Data
     public interface ICommanderRepo
     {
         //Give list of all command objects/resources
-        IEnumerable<Command> GetAppCommands();
+        IEnumerable<Command> GetAllCommands();
 
         //Return single command depending on provided ID
         Command GetCommandById(int id);

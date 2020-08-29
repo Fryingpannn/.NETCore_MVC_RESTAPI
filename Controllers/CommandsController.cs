@@ -3,7 +3,7 @@ using Commander.Data;
 using Commander.Models;
 using Microsoft.AspNetCore.Mvc;
 
-//(?) Decoupling: We use this controller to reach in the repository's implemented class. Then that class accesses the database.
+//Decoupling: We use this controller to access the repository's implemented class. Then that class accesses the database.
 
 namespace Commander.Controllers
 {
@@ -35,7 +35,7 @@ namespace Commander.Controllers
         //create first action result endpoint
         public ActionResult <IEnumerable<Command>> GetAllCommands()
         {
-            var commandItems = _repository.GetAppCommands();
+            var commandItems = _repository.GetAllCommands();
 
             //return HTTP 200 OK result + commandItems
             return Ok(commandItems);
