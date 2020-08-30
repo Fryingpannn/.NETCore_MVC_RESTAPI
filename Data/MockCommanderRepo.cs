@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Commander.Models;
 
-//MOCK REPOSITORY, NOT USED IN FINAL VERSION
+//MOCK REPOSITORY, NOT USED IN FINAL VERSION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 
 //Data = repository
 namespace Commander.Data
@@ -9,6 +9,11 @@ namespace Commander.Data
     //Implementing ICommanderRepo interface, decoupling code!
     public class MockCommanderRepo : ICommanderRepo
     {
+        public void CreateCommand(Command cmd)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public IEnumerable<Command> GetAllCommands()
         {
             var commands = new List<Command> //implicit type
@@ -26,6 +31,11 @@ namespace Commander.Data
         {
             //mock database data
             return new Command{id=id, HowTo="Boil an egg", Line="Boil water", Platform="Kettle & Pan"};
+        }
+
+        public bool SaveChanges()
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

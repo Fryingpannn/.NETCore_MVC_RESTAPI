@@ -10,10 +10,17 @@ namespace Commander.Data
     //Since we are building a CRUD app, our repository kind of imitates the CRUD functionalities
     public interface ICommanderRepo
     {
+        //every time you make change via dbcontext, the data won't be changed in db unless you use SaveChanges()
+        bool SaveChanges();
+
+
         //Give list of all command objects/resources
         IEnumerable<Command> GetAllCommands();
 
         //Return single command depending on provided ID
         Command GetCommandById(int id);
+
+        //Create Command object
+        void CreateCommand(Command cmd);
     }
 }
