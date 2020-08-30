@@ -3,14 +3,16 @@ using System.ComponentModel.DataAnnotations;
 namespace Commander.Dtos
 {
     //Maps to our internal Command model
-    public class CommandReadDto
+    public class CommandUpdateDto
     { 
-        public int id { get; set; }
-
+        [Required]
+        [MaxLength(250)]
         public string HowTo { get; set; }
 
+        [Required]
         public string Line { get; set; } 
 
-       // public string Platform { get; set; } //we can remove this if we don't want to show it to client
+        [Required]
+        public string Platform { get; set; }
     }
 }

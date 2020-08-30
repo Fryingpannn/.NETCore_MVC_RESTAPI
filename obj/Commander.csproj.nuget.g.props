@@ -19,7 +19,6 @@
     <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\3.1.7\build\netcoreapp2.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\3.1.7\build\netcoreapp2.0\Microsoft.EntityFrameworkCore.Design.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgNewtonsoft_Json Condition=" '$(PkgNewtonsoft_Json)' == '' ">C:\Users\mattx\.nuget\packages\newtonsoft.json\10.0.1</PkgNewtonsoft_Json>
     <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\mattx\.nuget\packages\microsoft.entityframeworkcore.tools\3.1.7</PkgMicrosoft_EntityFrameworkCore_Tools>
   </PropertyGroup>
 </Project>

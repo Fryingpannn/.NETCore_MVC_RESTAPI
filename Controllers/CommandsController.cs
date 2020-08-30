@@ -3,13 +3,14 @@ using AutoMapper;
 using Commander.Data;
 using Commander.Dtos;
 using Commander.Models;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 
 //Decoupling: We use this controller to access the repository's implemented class. Then that class accesses the database.
 
 namespace Commander.Controllers
 {
-    //THESE [] ARE ATTRIBUTES: declarative tags to give info about runtime for the whole class
+    //The [] are attributes: declarative tags to give runtime info for the whole class
     //controller level route (base route): how you get to resources/api endpoints
     //Route(".."): MATCHES URI to an action -->  will pop the string from action in the api route. must change if class name changes.
     [Route("api/commands")] 
@@ -48,7 +49,7 @@ namespace Commander.Controllers
         }
 
         //putting {id} gives us a route to this action result, respond to: "GET api/commands/5"
-        [HttpGet("{id}")] //since this one and above both respond to GET (same verb), their URI must be differentiated
+        [HttpGet("{id}", Name="GetCommandById")] //since this one and above both respond to GET (same verb), their URI must be differentiated
         public ActionResult <CommandReadDto> GetCommandById(int id) //This 'id' comes from the request we pass via the URI (postman)
         {                                                           //Model Binding: because we set [ApiController]: using default behaviour, id will come from [FromBody]
             var commandItem = _repository.GetCommandById(id);
@@ -60,16 +61,101 @@ namespace Commander.Controllers
         }
 
         //POST api/commands
-        //It returns CommandReadDto because: when creation success, returns the created obj
         [HttpPost]
         public ActionResult<CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
         {
             //Source -> Target
-            var commandModel = _mapper.Map<Command>(commandCreateDto); //mapping from commandCreateDto to Command obj
-            _repository.CreateCommand(commandModel);
-            _repository.SaveChanges(); //save changes so that the object is actually created in db
+            var commandModel = _mapper.Map<Command>(commandCreateDto); //mapping from commandCreateDto to Command obj; returns mapped obj
+            _repository.CreateCommand(commandModel); //create the model in db context
+            _repository.SaveChanges(); //save changes so that the object is created in actual db
 
-            return Ok(commandModel);
+
+            //return a read dto instead
+            var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
+
+            //should also be sending back URI + HTTP 201 (REST principle)
+            return CreatedAtRoute(nameof(GetCommandById), new {id = commandReadDto.id}, commandReadDto);
+
+            //return Ok(commandReadDto);  --> returns 200
+        }
+
+        //PUT api/commands/{id}
+        //Since we only return http 204, return type = ActionResult
+        [HttpPut("{id}")]
+        public ActionResult UpdateCommand(int id, CommandUpdateDto commandUpdateDto)
+        {
+            //check if requested model exists
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if(commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            //maps the newly created model to the requested one from repo --> updates dbcontext directly
+            _mapper.Map(commandUpdateDto, commandModelFromRepo);
+            
+            //still going to call the repo method although it's empty, some implementations may require it
+            _repository.UpdateCommand(commandModelFromRepo);
+
+            //flush changes to db
+            _repository.SaveChanges();
+
+            //return 204 No Content
+            return NoContent();
+        }
+
+        //PATCH api/commands/{id}
+        [HttpPatch("{id}")]
+        public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<CommandUpdateDto> patchDoc)
+        {
+            //check if requested model exists
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if(commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            //we are receiving the patchDoc from client, to apply the patch:
+
+            //map repo model to dto
+            var commandToPatch = _mapper.Map<CommandUpdateDto>(commandModelFromRepo);
+
+            //applying patch
+            patchDoc.ApplyTo(commandToPatch, ModelState);
+
+            //validation
+            if(!TryValidateModel(commandToPatch))
+            {
+                return ValidationProblem(ModelState);
+            }
+
+            //maps the new patched dto model to the one in repo; updates dbcontext
+            _mapper.Map(commandToPatch, commandModelFromRepo);
+
+            //redundant empty update command
+            _repository.UpdateCommand(commandModelFromRepo);
+
+            _repository.SaveChanges();
+
+            return NoContent();
+        }
+
+        //DELETE api/commands/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteCommand(int id)
+        {
+            //check if requested model exists
+            var commandModelFromRepo = _repository.GetCommandById(id);
+            if(commandModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            //deleting command model
+            _repository.DeleteCommand(commandModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
         }
     }
 }

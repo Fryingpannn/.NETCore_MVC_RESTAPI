@@ -20,7 +20,13 @@ namespace Commander.Data
         //Return single command depending on provided ID
         Command GetCommandById(int id);
 
-        //Create Command object
+        //Create Command object (POST)
         void CreateCommand(Command cmd);
+
+        //PUT
+        void UpdateCommand(Command cmd);
+
+        //DELETE
+        void DeleteCommand(Command cmd);
     }
 }

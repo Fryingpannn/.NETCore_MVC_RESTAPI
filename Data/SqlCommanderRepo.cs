@@ -45,5 +45,22 @@ namespace Commander.Data
         {
             return (_context.SaveChanges() > 0 );
         }
+
+        //PUT endpoint
+        public void UpdateCommand(Command cmd)
+        {
+            //Nothing!
+        }
+
+        //DELETE endpoint (no need DTO)
+        public void DeleteCommand(Command cmd)
+        {
+            if(cmd == null){
+                throw new ArgumentNullException(nameof(cmd));
+            }
+            
+            //remove selected command model
+            _context.Commands.Remove(cmd);
+        }
     }
 }

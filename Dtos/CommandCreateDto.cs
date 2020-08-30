@@ -7,10 +7,15 @@ namespace Commander.Dtos //namespace: the name of our project (similar to Java p
     { 
        // public int id { get; set; } --> remove because db will create itself the id number
 
+         //data annotation validators here will require these during creation; in case of error, return 400 instead of 500 to client
+        [Required]
+        [MaxLength(250)]
         public string HowTo { get; set; }
 
+        [Required]
         public string Line { get; set; } 
 
-       public string Platform { get; set; } //cannot remove platform in create class because it's required when reading
+        [Required]
+        public string Platform { get; set; } //cannot remove platform in create class because it's required when reading
     }
 }

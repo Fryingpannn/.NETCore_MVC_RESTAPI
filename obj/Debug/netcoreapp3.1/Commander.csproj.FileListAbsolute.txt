@@ -61,3 +61,6 @@ D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\runti
 D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\obj\Debug\netcoreapp3.1\Commander.csproj.CopyComplete
 D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\AutoMapper.dll
 D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
