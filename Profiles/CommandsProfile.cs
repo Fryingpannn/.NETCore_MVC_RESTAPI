@@ -8,10 +8,15 @@ namespace Commander.Profiles
     //inherit base class Profile from AutoMapper namespace
     class CommandsProfile : Profile
     {
+        
         public CommandsProfile()
         {
+            //Source -> Target
             //automapper: maps from X & to Y
             CreateMap<Command,CommandReadDto>();
+
+            //mapping the created dto to an actual command obj
+            CreateMap<CommandCreateDto, Command>();
         }
     }
 }

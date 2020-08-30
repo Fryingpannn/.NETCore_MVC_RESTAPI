@@ -50,13 +50,26 @@ namespace Commander.Controllers
         //putting {id} gives us a route to this action result, respond to: "GET api/commands/5"
         [HttpGet("{id}")] //since this one and above both respond to GET (same verb), their URI must be differentiated
         public ActionResult <CommandReadDto> GetCommandById(int id) //This 'id' comes from the request we pass via the URI (postman)
-        {                                           //Model Binding: because we set [ApiController]: using default behaviour, id will come from [FromBody]
+        {                                                           //Model Binding: because we set [ApiController]: using default behaviour, id will come from [FromBody]
             var commandItem = _repository.GetCommandById(id);
 
             if(commandItem != null)
                 return Ok(_mapper.Map<CommandReadDto>(commandItem));
             else
                 return NotFound();  //if id doesn't exist, will indicate not found
+        }
+
+        //POST api/commands
+        //It returns CommandReadDto because: when creation success, returns the created obj
+        [HttpPost]
+        public ActionResult<CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
+        {
+            //Source -> Target
+            var commandModel = _mapper.Map<Command>(commandCreateDto); //mapping from commandCreateDto to Command obj
+            _repository.CreateCommand(commandModel);
+            _repository.SaveChanges(); //save changes so that the object is actually created in db
+
+            return Ok(commandModel);
         }
     }
 }
