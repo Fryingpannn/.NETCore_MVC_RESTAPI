@@ -7,8 +7,8 @@
 
 ### Application Architecture:
 
-![image](https://user-images.githubusercontent.com/59063950/91675593-e9a00480-eb0a-11ea-8e1f-91bd3e898c8b.png)
+![image](https://user-images.githubusercontent.com/59063950/91676120-c5ddbe00-eb0c-11ea-9420-2212a1950ab9.png)
 
 ### API Endpoints:
 
-![image](https://user-images.githubusercontent.com/59063950/91675605-f7558a00-eb0a-11ea-80c6-ef07ef2057e8.png)
+![image](https://user-images.githubusercontent.com/59063950/91676062-8e6f1180-eb0c-11ea-83b0-affd0f607eac.png)
