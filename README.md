@@ -17,11 +17,11 @@
 
 ## Sample endpoints using Postman:
 
-### [HttpPost] -> api/commands/: Creates a new command, returns Location header with link to resource, as well as 201 Created status code.
+### [HttpPost] Creates a new command, returns Location header with link to resource, as well as the '201 Created' status code.
 
 ![image](https://user-images.githubusercontent.com/59063950/91677362-73060580-eb10-11ea-8097-6751b4c014d3.png)
 
-### [HttpPatch] -> api/commands/{id}: Updates the value of the howTo attribute and returns 204 No Content status code.
+### [HttpPatch] Updates the value of the howTo attribute and returns the '204 No Content' status code.
 
 ![image](https://user-images.githubusercontent.com/59063950/91677120-d17eb400-eb0f-11ea-84ea-8922972542fd.png)
 
