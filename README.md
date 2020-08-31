@@ -6,12 +6,15 @@
 > - MVC Architectural Pattern
 > - C#
 
-Familiarized myself with:
-- Dependency injection
-- Repository design pattern
-- SQL Server Express & SSMS
-- Entity Framework Core O/RM (DBContext, Migration)
-- Data Transfer Objects (DTOs) & AutoMapper
+#### More specifically, I familiarized myself with the following:
+> - Dependency injection
+> - Repository design pattern
+> - SQL Server Express & SSMS
+> - Entity Framework Core O/RM (DBContext, Migration)
+> - Data Transfer Objects (DTOs) & AutoMapper
+> - RESTful API guidelines
+> - HTTP (GET, POST, PUT, PATCH, DELETE, status codes)
+> - Other: 
 
 *Note: Please excuse the large amount of comments in my code which I used for notes and later review as this is my first time using the .NET Core framework.*
 
