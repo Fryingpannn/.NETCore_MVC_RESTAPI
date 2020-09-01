@@ -3,11 +3,11 @@ using System.Reflection;
 using System.Collections.Generic;
 using Commander.Models;
 
-//Data = repository
+//'Data' is our repository
 namespace Commander.Data
 {
     //Interface class.
-    //Since we are building a CRUD app, our repository kind of imitates the CRUD functionalities
+    //Since we are building a CRUD app, our repository interface imitates the CRUD functionalities
     public interface ICommanderRepo
     {
         //every time you make change via dbcontext, the data won't be changed in db unless you use SaveChanges()

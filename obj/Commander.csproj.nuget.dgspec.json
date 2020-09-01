@@ -69,6 +69,18 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.7, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
+            "Swashbuckle.AspNetCore.Annotations": {
+              "target": "Package",
+              "version": "[5.5.1, )"
+            },
+            "Swashbuckle.AspNetCore.Newtonsoft": {
+              "target": "Package",
+              "version": "[5.5.0, )"
             }
           },
           "imports": [

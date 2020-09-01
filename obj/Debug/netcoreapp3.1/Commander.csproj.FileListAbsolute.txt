@@ -64,3 +64,10 @@ D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\AutoM
 D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\obj\Debug\netcoreapp3.1\Commander.MvcApplicationPartsAssemblyInfo.cs
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Newtonsoft.dll
+D:\ALL\Work\Coding\VSCode\C#\RESTProject\Commander\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Annotations.dll

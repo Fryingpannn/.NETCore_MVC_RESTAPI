@@ -5,6 +5,7 @@ using Commander.Dtos;
 using Commander.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 //Decoupling: We use this controller to access the repository's implemented class. Then that class accesses the database.
 
@@ -38,6 +39,7 @@ namespace Commander.Controllers
         
         //This action will respond to GET api/commands
         //deciding that this method will respond to GET method
+        [SwaggerOperation(Summary = "Get all commands.")] //description on swagger UI
         [HttpGet]
         //create first action result endpoint
         public ActionResult <IEnumerable<CommandReadDto>> GetAllCommands()
@@ -48,6 +50,7 @@ namespace Commander.Controllers
             return Ok(_mapper.Map<IEnumerable<CommandReadDto>>(commandItems));  //will map commandItem to the DTO instance
         }
 
+        [SwaggerOperation(Summary = "Get the command of the given id number.")]
         //putting {id} gives us a route to this action result, respond to: "GET api/commands/5"
         [HttpGet("{id}", Name="GetCommandById")] //since this one and above both respond to GET (same verb), their URI must be differentiated
         public ActionResult <CommandReadDto> GetCommandById(int id) //This 'id' comes from the request we pass via the URI (postman)
@@ -60,6 +63,7 @@ namespace Commander.Controllers
                 return NotFound();  //if id doesn't exist, will indicate not found
         }
 
+        [SwaggerOperation(Summary = "Creating a command; please fill in the three attributes. 'howTo' is the command description, 'line' is the code of the command, and 'platform' is its application platform.")]
         //POST api/commands
         [HttpPost]
         public ActionResult<CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
@@ -79,6 +83,7 @@ namespace Commander.Controllers
             //return Ok(commandReadDto);  --> returns 200
         }
 
+        [SwaggerOperation(Summary = "Replaces the command of the given id with a new command you specify.")]
         //PUT api/commands/{id}
         //Since we only return http 204, return type = ActionResult
         [HttpPut("{id}")]
@@ -104,6 +109,7 @@ namespace Commander.Controllers
             return NoContent();
         }
 
+        [SwaggerOperation(Summary = "Use JSON 'replace' operation to perform a partial update on the given command. The 'value' is the new value you'd like, 'path' is either '/line' or '/howTo' (Delete 'from' and replace {} with \" \" for 'value').")]
         //PATCH api/commands/{id}
         [HttpPatch("{id}")]
         public ActionResult PartialCommandUpdate(int id, JsonPatchDocument<CommandUpdateDto> patchDoc)
@@ -140,6 +146,7 @@ namespace Commander.Controllers
             return NoContent();
         }
 
+        [SwaggerOperation(Summary = "Delete the given command.")]
         //DELETE api/commands/{id}
         [HttpDelete("{id}")]
         public ActionResult DeleteCommand(int id)
