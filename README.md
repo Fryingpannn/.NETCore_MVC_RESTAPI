@@ -14,7 +14,9 @@
 > - Data Transfer Objects (DTOs) & AutoMapper
 > - RESTful API guidelines
 > - HTTP (GET, POST, PUT, PATCH, DELETE, status codes)
-> - Other: Views (Razor, Shared Layout, ViewBag, RenderSection)
+> - Views (Razor, Shared Layout, ViewBag, RenderSection)
+> - Docker (Container, Images, Deploying on Docker Hub)
+> - Microsoft Azure (Deployment: Docker Image + SQL Database)
 
 *Note: Please excuse the large amount of comments in my code, which I had to use for notes and later review, as this is my first time using the .NET Core framework.*
 
