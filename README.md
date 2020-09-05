@@ -1,4 +1,5 @@
 # CLI Commands REST API (ASP.NET Core MVC)
+Site link: http://commanderapi.canadacentral.azurecontainer.io/index.html
 #### With the plethora of CLI commands to learn, it is helpful to have an API which returns us commands that we often forget. This Commands API stores command line snippets along with a short description of what it does, as well as which platform it's for.
 ### The purpose of this project is to learn and practice concepts related to:
 > - Building a REST API
@@ -6,7 +7,7 @@
 > - MVC Architectural Pattern
 > - C#
 
-#### More specifically, I familiarized myself with the following:
+#### More specifically, I practiced the following:
 > - Dependency injection
 > - Repository design pattern
 > - SQL Server Express & SSMS
