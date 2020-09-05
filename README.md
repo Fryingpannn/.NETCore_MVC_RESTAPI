@@ -20,7 +20,7 @@ Site link: http://commanderapi.canadacentral.azurecontainer.io/index.html
 > - Docker (Container, Image, Deploying on Docker Hub)
 > - Microsoft Azure (Deployment: Docker Image + SQL Database)
 
-*Note: Please excuse the large amount of comments in my code, which I had to use for notes and later review, as this is my first time using the .NET Core framework.*
+*Note: Please excuse the large amount of comments in my code, which I put as notes for later review.*
 
 ### Application Architecture:
 
