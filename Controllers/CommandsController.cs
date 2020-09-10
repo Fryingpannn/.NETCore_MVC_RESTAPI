@@ -13,7 +13,7 @@ namespace Commander.Controllers
 {
     //The [] are attributes: declarative tags to give runtime info for the whole class
     //controller level route (base route): how you get to resources/api endpoints
-    //Route(".."): MATCHES URI to an action -->  will pop the string from action in the api route. must change if class name changes.
+    //Route(".."): matches URI to an action -->  will use the routing path from actions
     [Route("api/commands")] 
     [ApiController] //gives out of the box behaviours (makes life easier)
     public class CommandsController : ControllerBase //if inherit from controller, will bring view support (not needed)
