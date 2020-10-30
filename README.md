@@ -26,6 +26,10 @@ Site link: http://commanderapi.canadacentral.azurecontainer.io/index.html
 
 ![image](https://user-images.githubusercontent.com/59063950/91676248-3553ad80-eb0d-11ea-8fc7-e674ef0784a4.png)
 
+### Website Look:
+
+![image](https://user-images.githubusercontent.com/59063950/97652889-e1dedc80-1a35-11eb-8748-cd518f40c48b.png)
+
 ### API Endpoints (CRUD):
 
 ![image](https://user-images.githubusercontent.com/59063950/91676062-8e6f1180-eb0c-11ea-83b0-affd0f607eac.png)
