@@ -7,7 +7,7 @@ Site link: http://commanderapi.canadacentral.azurecontainer.io/index.html
 > - MVC Architectural Pattern
 > - C#
 
-#### More specifically, I practiced the following:
+#### More specifically, I used the following:
 > - Dependency injection
 > - Repository design pattern
 > - SQL Server Express & SSMS
